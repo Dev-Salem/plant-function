@@ -72,3 +72,23 @@ def lambda_handler(req, res):
         return res.json(
             {"success": False, "message": f"Error processing request: {str(e)}"}, 500
         )
+
+
+def main(context):
+    """
+    Entry point for the Appwrite function
+
+    Args:
+        context: The Appwrite function context containing request and response objects
+
+    Returns:
+        The result of the lambda_handler function
+    """
+    try:
+        # Call the lambda handler with the request and response objects from the context
+        return lambda_handler(context.req, context.res)
+    except Exception as e:
+        # Handle any unexpected errors at the top level
+        return context.res.json(
+            {"success": False, "message": f"Unhandled exception in main: {str(e)}"}, 500
+        )
