@@ -40,7 +40,7 @@ def main(context):
 
         # Prepare the request to Plant.id API
         context.log("Preparing request to Plant.id API")
-        plant_id_url = "https://plant.id/api/v3/health_assessment"
+        plant_id_url = "https://crop.kindwise.com/api/v1/identification"
 
         # For each base64 image, make sure it has the correct prefix
         formatted_images = []
